@@ -38,14 +38,14 @@ class Window(pg.Window):
         matrix = pg.Matrix().translate((0, 0, -t * 800 + 800))
         matrix = matrix.perspective(65, self.aspect, 1, 10000)
         self.title.matrix = matrix
-        self.title.opacity = max(0.0, 1.0 - (t / 10) ** 2)
+        self.title.opacity = max(0.0, 1.0 - (t / 11) ** 2)
         # crawl
-        matrix = pg.Matrix().translate((0, -400, -t * 40 + 800))
+        matrix = pg.Matrix().translate((0, -400, -t * 32 + 800))
         matrix = matrix.rotate((-1, 0, 0), pi / 8)
         matrix = matrix.perspective(65, self.aspect, 1, 10000)
         self.crawl.matrix = matrix
-        if t > 50:
-            self.crawl.opacity = max(0.0, 1.0 - ((t - 50) / 10) ** 2)
+        if t > 60:
+            self.crawl.opacity = max(0.0, 1.0 - ((t - 60) / 10) ** 2)
         else:
             self.crawl.opacity = 1.0
     def draw_stars(self):
@@ -99,4 +99,4 @@ class Program(pg.BaseProgram):
         context.opacity = 1.0
 
 if __name__ == "__main__":
-    pg.run(Window)
+    pg.run(Window, full_screen=True)

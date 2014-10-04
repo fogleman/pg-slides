@@ -41,4 +41,4 @@ class Window(pg.Window):
             shape.draw(self.context)
 
 if __name__ == "__main__":
-    pg.run(Window)
+    pg.run(Window, full_screen=True)
